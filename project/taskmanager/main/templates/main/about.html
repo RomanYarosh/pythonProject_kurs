@@ -1,10 +1,29 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-Страница про нас
+Описание локомотивов
 {% endblock %}
 
 {% block content %}
-    <h1>Страница про нас</h1>
-    <p>Страница про нас</p>
+<h1>Описание локомотива</h1>
+{% if description %}
+{% for el in description %}
+<div class="alert alert-warning mt-2">
+
+
+    <h3>{{ el.name_loc }}</h3>
+    <p>{{ el.type_loc }}</p>
+    <p>{{ el.function_loc }}</p>
+    <p>{{ el.year }}</p>
+    <p>{{ el.country_loc }}</p>
+    <p>{{ el.construction_speed }}</p>
+    <p>{{ el.weight_loc }}</p>
+    <p>{{ el.length_loc }}</p>
+    <p>{{ el.description }}</p>
+
+</div>
+{% endfor %}
+{% else %}
+<p>У Вас нет записей</p>
+{% endif %}
 {% endblock %}
