@@ -1,16 +1,17 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Locomotive
 from .forms import LocomotiveForm
 
 
 def index(request):
     locomotives = Locomotive.objects.all()
-    return render(request, 'main/index.html', {'title': 'Главная страница сайта', 'locomotives': locomotives})
+    return render(request, 'main/index.html', {'title': 'Каталог локомотивов', 'locomotives': locomotives})
 
 
-def about(request):
-    description = Locomotive.objects.all()
-    return render(request, 'main/about.html', {'title': 'Описание локомотива', 'description': description})
+def about(request, locomotive_id):
+    locomotive = get_object_or_404(Locomotive, id=locomotive_id)
+    print(locomotive)
+    return render(request, 'main/about.html', {'title': 'Описание локомотива', 'locomotive': locomotive})
 
 
 def create(request):

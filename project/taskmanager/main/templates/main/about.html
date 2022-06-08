@@ -1,29 +1,18 @@
 {% extends 'main/base.html' %}
-
 {% block title %}
-Описание локомотивов
+{{ title }}
 {% endblock %}
-
 {% block content %}
-<h1>Описание локомотива</h1>
-{% if description %}
-{% for el in description %}
-<div class="alert alert-warning mt-2">
-
-
-    <h3>{{ el.name_loc }}</h3>
-    <p>{{ el.type_loc }}</p>
-    <p>{{ el.function_loc }}</p>
-    <p>{{ el.year }}</p>
-    <p>{{ el.country_loc }}</p>
-    <p>{{ el.construction_speed }}</p>
-    <p>{{ el.weight_loc }}</p>
-    <p>{{ el.length_loc }}</p>
-    <p>{{ el.description }}</p>
-
+<div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <h1>Описание локомотивов</h1>
+    <h3>Название: {{ locomotive.name_loc }}</h3>
+    <p>Тип: {{ locomotive.type_loc }}</p>
+    <p>Назначение: {{ locomotive.function_loc }}</p>
+    <p>Год выпуска: {{ locomotive.year }}</p>
+    <p>Страна изготовитель: {{ locomotive.country_loc }}</p>
+    <p>Конструкционная скорость: {{ locomotive.construction_speed }} км/ч</p>
+    <p>Масса: {{ locomotive.weight_loc }} т</p>
+    <p>Длина: {{ locomotive.length_loc }} мм</p>
+    <p>Описание: <br>{{ locomotive.description }}</p>
 </div>
-{% endfor %}
-{% else %}
-<p>У Вас нет записей</p>
-{% endif %}
 {% endblock %}

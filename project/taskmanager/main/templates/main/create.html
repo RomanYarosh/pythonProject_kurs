@@ -1,24 +1,12 @@
 {% extends 'main/base.html' %}
-
 {% block title %}
 Добавить локомотив
 {% endblock %}
-
 {% block content %}
 <h1>Добавить локомотив</h1>
 <form method="post">
     {% csrf_token %}
-    <!--        {{ form.title }}<br>-->
-    <!--        {{ form.task }}<br>-->
     {{ form.name_loc }}<br>
-    {{ form.type_loc }}<br>
-    {{ form.function_loc }}<br>
-    {{ form.year }}<br>
-    {{ form.country_loc }}<br>
-    {{ form.construction_speed }}<br>
-    {{ form.weight_loc }}<br>
-    {{ form.length_loc }}<br>
-    {{ form.description {{ form.name_loc }}<br>
     {{ form.type_loc }}<br>
     {{ form.function_loc }}<br>
     {{ form.year }}<br>
